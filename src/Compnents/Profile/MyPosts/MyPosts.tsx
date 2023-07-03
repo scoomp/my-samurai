@@ -5,13 +5,7 @@ import {type} from "os";
 
 
 
-type MyPostsType= {
-    id: number
-    message: string
-    LikesCount: number
-}
-
-const MyPosts : React.FC<MyPostsType>= (props) => {
+const MyPosts = () => {
     let  Posts  = [
         {id: 1, message: 'Hi, how are you?', LikesCount: 12},
         {id: 2, message: 'It s my first post', LikesCount: 11}
@@ -22,7 +16,7 @@ const MyPosts : React.FC<MyPostsType>= (props) => {
 
     return (
         <div className={s.postsBlock}>
-          <h3>MyPosts </h3>
+          <h3>MyPosts</h3>
             <div>
                 <div>
                     <textarea></textarea>
