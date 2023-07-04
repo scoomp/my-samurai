@@ -1,0 +1,28 @@
+.wrapperUser {
+    display: flex;
+}
+
+.contentImg {
+    margin-bottom: 15px;
+    background-image: url("https://img.freepik.com/free-vector/leaves-background-with-metallic-foil_79603-956.jpg");
+    max-width: 90%;
+    background-repeat: repeat;
+    background-size: cover;
+}
+
+.userTitle {
+    margin: 15px 0px;
+    font-size: 40px;
+    color: royalblue;
+}
+
+.item {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 40px;
+    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+}
+
+.userInfo {
+    padding: 50px;
+}
