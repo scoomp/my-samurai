@@ -1,9 +1,5 @@
 import {v1} from "uuid";
 
-// @ts-ignore
-let rerenderEntireTree = (state: StateType) => {
-    console.log("State was changed")
-}
 
 // types
 export type PostsType = {
@@ -43,6 +39,7 @@ export type StateType = {
     dialogsPage: DialogsPageType
     sidebar: SidebarType
 }
+
 export type StoreType = {
     _state: StateType
     callSubscriber(state: StateType): void
@@ -53,6 +50,7 @@ export type StoreType = {
     addMessage(): void
     subscribe(observer: (state: StateType) => void): void
 }
+
 // data
 export let store: StoreType = {
     _state: {
@@ -76,31 +74,35 @@ export let store: StoreType = {
                 {id: v1(), message: "I'm Valera"},
             ],
             dialogs: [
-                {id: v1(), name: "Yar4ik", avatar: "https://sun9-67.userapi.com/impg/Ub4on9zYwOSIw1Zg5kFL1zJblJT63Zo2LvONHQ/IzEBM2mazDU.jpg?size=1079x1920&quality=95&sign=81cfb7ae074c3b5c6f97a0aa543f31fc&type=album"},
                 {
                     id: v1(),
-                    name: "Vadik",
-                    avatar: "https://sun9-29.userapi.com/impg/r71BCbestUY6hJOTn0dCCZPPX-LtLNbsl1oQdQ/5UTuIhxf17A.jpg?size=960x1280&quality=95&sign=2e8925bb871433fcc404fd08cde7dafb&type=album"
+                    name: "Dimych",
+                    avatar: "https://ru.seaicons.com/wp-content/uploads/2015/09/Man-16-icon.png"
                 },
                 {
                     id: v1(),
-                    name: "Alina",
-                    avatar: "https://sun9-24.userapi.com/impg/1NyshwKEeAVl8eoFc_NvsdEgfcR7y3-kNArkRQ/8etPkAewko4.jpg?size=1620x2160&quality=95&sign=c6d2da63bf50a1bf199acfd2b302b864&type=album"
+                    name: "Sasha",
+                    avatar: "https://www.pngall.com/wp-content/uploads/12/Avatar-Profile-Vector-PNG-Clipart.png"
                 },
                 {
                     id: v1(),
-                    name: "Polina",
-                    avatar: "https://sun9-61.userapi.com/impg/kDEy_tXRrBzrsQqtf8gnUKeHbpn8kyTEZdXbyQ/YqiMUwqxag8.jpg?size=1620x2160&quality=95&sign=66e3fa289671e198d0e003e18812c960&type=album"
+                    name: "Diana",
+                    avatar: "https://cdn.icon-icons.com/icons2/3708/PNG/512/girl_female_woman_person_people_avatar_icon_230018.png"
                 },
                 {
                     id: v1(),
-                    name: "Max",
+                    name: "Julia",
+                    avatar: "https://cdn.icon-icons.com/icons2/1879/PNG/512/iconfinder-4-avatar-2754580_120522.png"
+                },
+                {
+                    id: v1(),
+                    name: "Jhon",
                     avatar: "https://cdn.icon-icons.com/icons2/1879/PNG/512/iconfinder-1-avatar-2754574_120513.png"
                 },
                 {
                     id: v1(),
-                    name: "Kostya",
-                    avatar: "https://sun9-39.userapi.com/impg/ri09EpPL2Pa16JQ_e6buDzbplwpXxEWeHKUCrA/qMDtwHgSndw.jpg?size=1620x2160&quality=95&sign=3ba2815a5aa0ba66ca4bc94ee321c7fc&type=album"
+                    name: "Alina",
+                    avatar: "https://cdn.icon-icons.com/icons2/1736/PNG/512/4043231-afro-female-person-woman_113288.png"
                 },
             ],
             newMessageText: ""
@@ -109,18 +111,18 @@ export let store: StoreType = {
             friends: [
                 {
                     id: v1(),
-                    name: "Yar4ik",
-                    avatar: "https://sun9-67.userapi.com/impg/Ub4on9zYwOSIw1Zg5kFL1zJblJT63Zo2LvONHQ/IzEBM2mazDU.jpg?size=1079x1920&quality=95&sign=81cfb7ae074c3b5c6f97a0aa543f31fc&type=album"
+                    name: "Julia",
+                    avatar: "https://cdn.icon-icons.com/icons2/1879/PNG/512/iconfinder-4-avatar-2754580_120522.png"
                 },
                 {
                     id: v1(),
-                    name: "Vadik",
-                    avatar: "https://sun9-29.userapi.com/impg/r71BCbestUY6hJOTn0dCCZPPX-LtLNbsl1oQdQ/5UTuIhxf17A.jpg?size=960x1280&quality=95&sign=2e8925bb871433fcc404fd08cde7dafb&type=album"
+                    name: "Diana",
+                    avatar: "https://cdn.icon-icons.com/icons2/3708/PNG/512/girl_female_woman_person_people_avatar_icon_230018.png"
                 },
                 {
                     id: v1(),
-                    name: "Kostya",
-                    avatar: "https://sun9-39.userapi.com/impg/ri09EpPL2Pa16JQ_e6buDzbplwpXxEWeHKUCrA/qMDtwHgSndw.jpg?size=1620x2160&quality=95&sign=3ba2815a5aa0ba66ca4bc94ee321c7fc&type=album"
+                    name: "Sasha",
+                    avatar: "https://www.pngall.com/wp-content/uploads/12/Avatar-Profile-Vector-PNG-Clipart.png"
                 }]
         },
     },
@@ -154,6 +156,6 @@ export let store: StoreType = {
         this.callSubscriber = observer
     }
 }
-// @ts-ignore
-window.state = state
 
+// @ts-ignore
+window.store = store

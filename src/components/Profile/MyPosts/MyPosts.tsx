@@ -1,4 +1,4 @@
- import React, {useRef} from "react";
+import React, {useRef} from "react";
 import Post from "./Post/Post";
 import s from "./MyPosts.module.css"
 import {ProfilePageType} from "../../../redux/state";
@@ -20,10 +20,12 @@ const MyPosts = ({profilePage, addPost, updateNewPostText}: MyPostsPropsType) =>
     const newPostElement = useRef<HTMLTextAreaElement>(null)
 
     const onClickAddPost = () => {
+        debugger
         addPost()
     }
 
     const onChangeHandler = () => {
+        debugger
         const text = newPostElement.current!.value
         updateNewPostText(text)
     }

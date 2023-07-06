@@ -6,7 +6,7 @@ export const Header = () => {
     return (
 
         <header className={s.header}>
-                <img src="https://img.freepik.com/premium-vector/telegram-icon-in-paper-cut-style-social-media-icons_505135-256.jpg" alt="logo"/>
+                <img src="https://static.vecteezy.com/system/resources/thumbnails/011/653/653/small/eco-friendly-smart-city-logo-design-blue-fullcolor-png.png" alt="logo"/>
         </header>
     )
 }

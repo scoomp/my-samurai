@@ -2,7 +2,7 @@ import React, {useRef} from "react";
 import s from "./Dialogs.module.css"
 import {DialogItem} from "./DialogItem/DialogItem";
 import {Message} from "./Message/Message";
-import {addMessage, DialogsPageType, updateNewMessageText} from "../../redux/state";
+import {DialogsPageType} from "../../redux/state";
 
 type DialogsPropsType = {
     dialogsPage: DialogsPageType
@@ -10,7 +10,7 @@ type DialogsPropsType = {
     addMessage: () => void
 }
 
-export const Dialogs = ({dialogsPage}: DialogsPropsType) => {
+export const Dialogs = ({dialogsPage, updateNewMessageText, addMessage}: DialogsPropsType) => {
     const {dialogs, messages} = dialogsPage
 
     const dialogsData = dialogs.map((d, index) => {
