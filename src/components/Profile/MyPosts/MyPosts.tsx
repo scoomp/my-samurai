@@ -10,7 +10,7 @@ type MyPostsPropsType = {
     updateNewPostText: (newText: string) => void
 }
 
-const MyPosts = ({profilePage, addPost, updateNewPostText}: MyPostsPropsType) => {
+export const MyPosts = ({profilePage, addPost, updateNewPostText}: MyPostsPropsType) => {
     let {posts, newPostText} = profilePage
 
     const postsData = posts.map((p, index) => {
@@ -42,4 +42,4 @@ const MyPosts = ({profilePage, addPost, updateNewPostText}: MyPostsPropsType) =>
     )
 }
 
-export default MyPosts;
+
