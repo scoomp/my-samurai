@@ -9,7 +9,6 @@ export const Header = () => {
                  src="https://www.svgrepo.com/show/327388/logo-react.svg"
                  alt={'logo'}/>
         </header>
-
     )
 }
 
