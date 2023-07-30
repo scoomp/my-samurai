@@ -44,6 +44,6 @@ function App(props: AppPropsType) {
             </div>
         </div>
     )
-}
+}а  
 
 export default App;
