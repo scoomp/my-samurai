@@ -1,35 +1,29 @@
-import React, {ChangeEvent, useRef} from 'react';
+import React from 'react';
 import s from './MyPosts.module.css'
-import {PostType, UnionType} from "../../../redux/state";
-import {addPostAC, updatePostAC} from "../../../redux/profileReducer";
-import {Post} from './Post/Post';
+import {Post} from "./Post/Post";
+import {PostType} from "../../../redux/redux-store";
 
 
 
 export type MyPostsPropsType = {
     posts: PostType[]
     newPostText: string
-    dispatch: (action: UnionType)=> void
+    addPost: ()=>void
+    onChangePostText: (newPostElement:string)=>void
 
 }
 
-
-
-
 export const MyPosts = (props: MyPostsPropsType) => {
 
-
     const postsElements = props.posts.map(post => <Post id={post.id} message={post.message} likeCount={post.likeCount}/>)
-
     const newPostElement = React.createRef<HTMLTextAreaElement>()
 
     const addPostHandler = () => {
-        if (newPostElement.current) props.dispatch(addPostAC())
+        props.addPost()
     }
-
+ 
     const onChangePostText = () => {
-
-        if (newPostElement.current) props.dispatch(updatePostAC(newPostElement.current.value))
+        if (newPostElement.current) props.onChangePostText(newPostElement.current.value)
     }
 
     return (
