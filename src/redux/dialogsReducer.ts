@@ -18,6 +18,7 @@ const initialState : DialogsPageType = {
 }
 
 
+
 export const dialogsReducer = (state: DialogsPageType = initialState, action:UnionType) : DialogsPageType => {
         switch (action.type) {
             case "NEW-MESSAGE": {
