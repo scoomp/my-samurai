@@ -16,7 +16,7 @@ const initialState : DialogsPageType = {
     ],
         newMessageText: ''
 }
-
+ 
 
 
 export const dialogsReducer = (state: DialogsPageType = initialState, action:UnionType) : DialogsPageType => {
