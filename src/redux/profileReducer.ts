@@ -20,9 +20,10 @@ export const profileReducer = (state: ProfilePageType = initialState, action: Un
             return stateCopy
         }
         case "UPDATE-POST": {
-            let stateCopy = {...state}
-            stateCopy.newPostText = action.payload.newText
-            return stateCopy
+           return {
+               ...state,
+               newPostText: action.type
+           }
         }
         default:
             return state

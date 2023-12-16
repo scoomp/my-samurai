@@ -28,6 +28,7 @@ export const dialogsReducer = (state: DialogsPageType = initialState, action: Un
             return stateCopy
         }
         case "UPDATE-MESSAGE": {
+            // @ts-ignore
             stateCopy .newMessageText = action.payload.updateMessageText
             return stateCopy
 

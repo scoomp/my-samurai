@@ -1,36 +1,58 @@
-import {ProfilePageType, UnionType} from "./redux-store";
+import {UnionType, UsersPageType} from "./redux-store";
 
 
-const initialState: ProfilePageType = {
-    posts: [
-        {id: 1, message: 'Hello, my name is Ilya', likeCount: 15},
-        {id: 2, message: 'Im busy', likeCount: 20}
+const initialState: UsersPageType = {
+    users: [
+        {
+            id: 1,
+            followed: false,
+            fullName: 'Dmitry',
+            status: 'I am a Boss',
+            location: {city: 'Minsk', country: 'Belarus'}
+        },
+        {
+            id: 2,
+            followed: true,
+            fullName: 'Sveta',
+            status: 'I am a Boss',
+            location: {city: 'Moscow', country: 'Russia'}
+        },
+        {
+            id: 3,
+            followed: false,
+            fullName: 'Andrew',
+            status: 'I am a Boss',
+            location: {city: 'Kiev', country: 'Ukraine'}
+        },
     ],
-    newPostText: 'it-kamasutra',
+
 }
 
-export const userReducer = (state: ProfilePageType = initialState, action: UnionType): ProfilePageType => {
+export const userReducer = (state: UsersPageType = initialState, action: UnionType): UsersPageType => {
     switch (action.type) {
+        case 'FOLLOW': {
+            return {...state, users:state.users.map(el=>el.id===action.userID ?{...el,followed:true}:el)}
+        }
+        case 'UN-FOLLOW': {
+            return {...state, users:state.users.map(el=>el.id===action.userID ?{...el,followed:false}:el)}
+        }
+
         default:
             return state
     }
 }
 
 
-
-export type AddPostACType = ReturnType<typeof addPostAC>
-export const addPostAC = () => {
+export type FollowACType = ReturnType<typeof followAC>
+export const followAC = (userID: number) => {
     return {
-        type: 'ADD-POST'
-    } as const
+        type: 'FOLLOW', userID
+    }
 }
 
-export type UpdatePostACType = ReturnType<typeof updatePostAC>
-export const updatePostAC = (newText: string) => {
+export type UnFollowACType = ReturnType<typeof unfollowAC>
+export const unfollowAC = (userID: number) => {
     return {
-        type: 'UPDATE-POST',
-        payload: {
-            newText
-        }
-    } as const
+        type: 'UN-FOLLOW', userID
+    }
 }
