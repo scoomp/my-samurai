@@ -1,42 +1,72 @@
-import React from 'react';
-import s from './Dialogs.module.css'
-import {Message} from "./Message/Message";
-import {DialogItem} from "./Dialog/DialogItem";
-import {MessageSenderContainer} from "./Message/MessageSender/MessageSenderContainer";
-import {DialogType, MessageType} from "../../redux/redux-store";
+import s from './Dialogs.module.css';
+import {Dialog} from './Dialog/Dialog';
+import {Message} from './Message/Message';
+import React, {ChangeEvent} from 'react';
 
-export type DialogsPropsType = {
-    dialogs: DialogType[]
-    messages: MessageType[]
-
+export type DialogsType = {
+    id: number
+    name: string
 }
 
+export type MessagesType = {
+    id: number
+    message: string
+}
 
-export const Dialogs = (props: DialogsPropsType) => {
+export type DialogsPageType = {
+    dialogs: DialogsType[]
+    messages: MessagesType[]
+    newMessageText: string
+}
 
-    const dialogsElements = props.dialogs.map(dialog => <DialogItem id={dialog.id} name={dialog.name}/>)
-    const messagesElements = props.messages.map(message => <Message id={message.id} message={message.message}/>)
+type PropsType = {
+    addMessage: (message: string) => void
+    updateNewMessageText: (text: string) => void
+} & DialogsPageType
 
+export const Dialogs: React.FC<PropsType> = (
+    {
+        dialogs,
+        messages,
+        newMessageText,
+        addMessage,
+        updateNewMessageText
+    }) => {
+
+    const dialogsElements = dialogs.map(d => (
+        <Dialog key={d.id} id={d.id} name={d.name}/>
+    ))
+
+    const messageElements = messages.map(m => (
+        <Message key={m.id} id={m.id} message={m.message}/>
+    ))
+
+    const addMessageHandler = () => {
+        addMessage(newMessageText)
+        updateNewMessageText('')
+    }
+
+    const updateNewMessageTextHandler = (e: ChangeEvent<HTMLTextAreaElement>) => {
+        updateNewMessageText(e.currentTarget.value)
+    }
 
     return (
-
-        <div className={s.dialogsWrapperContent}>
-            <div className={s.dialogWrapper}>
-                <ul className={s.dialogList}>
-                    {dialogsElements}
-                </ul>
+        <div className={s.dialogs}>
+            <div className={s.dialogsItems}>
+                {dialogsElements}
             </div>
-
-            <div className={s.messagesWrapper}>
-                <ul className={s.messagesList}>
-                    {messagesElements}
-                </ul>
-
-                <MessageSenderContainer/>
-
+            <div className={s.messages}>
+                {messageElements}
+            </div>
+            <div>
+                <div>
+                    <textarea
+                        value={newMessageText}
+                        onChange={updateNewMessageTextHandler}
+                    />
+                </div>
+                <button onClick={addMessageHandler}>add message</button>
             </div>
         </div>
-
     );
 };
-

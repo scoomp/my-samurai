@@ -1,26 +1,16 @@
-import React from 'react'
-import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import {BrowserRouter} from "react-router-dom";
-import {store} from "./redux/redux-store";
-import {Provider} from "react-redux";
+import ReactDOM from 'react-dom';
+import {BrowserRouter} from 'react-router-dom';
+import React from 'react';
+import {store} from './redux/redux-store';
+import {Provider} from 'react-redux';
 
-
-const rerenderEntireThree = () => {
-
-    ReactDOM.render(
-        <BrowserRouter>
-            <Provider store={store}>
-                <App/>
-            </Provider>
-        </BrowserRouter>
-        , document.getElementById('root')
-    );
-}
-
-rerenderEntireThree()
-
-store.subscribe(() => {
-    rerenderEntireThree()
-})
+ReactDOM.render(
+    <BrowserRouter>
+        <Provider store={store}>
+            <App/>
+        </Provider>
+    </BrowserRouter>,
+    document.getElementById('root')
+)

@@ -1,60 +1,16 @@
-import {combineReducers, createStore} from "redux";
-import {AddPostACType, profileReducer, UpdatePostACType} from "./profileReducer";
-import {dialogsReducer, NewMessageACType, UpdateMessageACType} from "./dialogsReducer";
-import {FollowACType, UnFollowACType, userReducer} from "./UsersReducer";
+import {combineReducers, createStore} from 'redux';
+import {profileReducer} from './profile-reducer';
+import {dialogsReducer} from './dialogs-reducer';
+import {sidebarReducer} from './sidebar-reducer';
+import {usersReducer} from './users-reducer';
 
-export type MessageType = {
-    id: number
-    message: string
-}
-export type DialogType = {
-    id: number
-    name: string
-}
-export type PostType = {
-    id: number
-    message: string
-    likeCount: number
-}
-export type UsersType = {
-    id: number,
-    followed: boolean
-    fullName: string,
-    status: string,
-    location: { city: string, country: string }
-}
-
-export type DialogsPageType = {
-    dialogs: DialogType[]
-    messages: MessageType[]
-    newMessageText: string
-}
-export type ProfilePageType = {
-    posts: PostType[]
-    newPostText: string
-}
-export type StateType = {
-    profilePage: ProfilePageType
-    dialogsPage: DialogsPageType
-}
-export  type UsersPageType = {
-    users: Array<UsersType>
-}
-
-export type UnionType = NewMessageACType | UpdateMessageACType | AddPostACType | UpdatePostACType | FollowACType | UnFollowACType
-
-
-export const RoootReducer = combineReducers({
+const rootReducer = combineReducers({
     profilePage: profileReducer,
-    dialogsPage: dialogsReducer,
-    userReducer: userReducer
+    messagesPage: dialogsReducer,
+    sidebar: sidebarReducer,
+    usersPage: usersReducer
 })
-export type AppStateType = ReturnType<typeof RoootReducer>
-export const store = createStore(RoootReducer);
 
+export type AppStateType = ReturnType<typeof rootReducer >
 
-// @ts-ignore
-window.store = store;
-
-
-
+export const store = createStore(rootReducer)

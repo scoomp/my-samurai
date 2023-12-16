@@ -1,11 +1,6 @@
-.content {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-}
+.banner {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
 
-.content__image {
-    width: 1060px;
-    height: 350px;
-    border-radius: 10px;
 }

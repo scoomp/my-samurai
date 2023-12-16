@@ -1,6 +1,4 @@
-import React from 'react';
-import s from '/Dialogs.module.css'
-
+import s from './Settings.module.css';
 
 export const Settings = () => {
     return (
@@ -9,4 +7,3 @@ export const Settings = () => {
         </div>
     );
 };
-

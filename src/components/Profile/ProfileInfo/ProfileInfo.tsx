@@ -1,18 +1,16 @@
-import React from 'react';
-import s from './ProfileInfo.module.css'
+import s from './ProfileInfo.module.css';
 
-export const ProfileInfo = () => {
+type ProfileInfoPropsType = {
+    imgSrc: string
+    description: string
+}
+export const ProfileInfo = (props: ProfileInfoPropsType) => {
     return (
-        <div className={s.content}>
-            <div>
-                <img className={s.content__image}
-                     src={'https://gamerwall.pro/uploads/posts/2022-08/1661206848_1-gamerwall-pro-p-peizazh-leto-oboi-1.jpg'}
-                     alt={'image sea'}/>
-            </div>
-            <div>
-                ava + desc
-            </div>
-
+        <div>
+            <img className={s.avatar}
+                 src={props.imgSrc}
+                 alt="avatar"/>
+            <div>{props.description}</div>
         </div>
     )
 }
