@@ -17,6 +17,7 @@ export const userReducer = (state: ProfilePageType = initialState, action: Union
 }
 
 
+
 export type AddPostACType = ReturnType<typeof addPostAC>
 export const addPostAC = () => {
     return {
