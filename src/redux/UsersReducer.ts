@@ -9,21 +9,8 @@ const initialState: ProfilePageType = {
     newPostText: 'it-kamasutra',
 }
 
-export const profileReducer = (state: ProfilePageType = initialState, action: UnionType): ProfilePageType => {
+export const userReducer = (state: ProfilePageType = initialState, action: UnionType): ProfilePageType => {
     switch (action.type) {
-        case "ADD-POST": {
-            let newPost = {id: 3, message: state.newPostText, likeCount: 0}
-            let stateCopy = {...state}
-            stateCopy.posts = {...state.posts}
-            stateCopy.posts.push(newPost)
-            stateCopy.newPostText = ''
-            return stateCopy
-        }
-        case "UPDATE-POST": {
-            let stateCopy = {...state}
-            stateCopy.newPostText = action.payload.newText
-            return stateCopy
-        }
         default:
             return state
     }
