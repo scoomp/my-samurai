@@ -10,14 +10,16 @@ export type UserType = {
     "followed": boolean
 }
 
-type UsersStateType = {
+export type UsersStateType = {
     users: UserType[]
+    pageSize: number
 }
 
 type ActionsType = FollowACType | UnfollowACType | SetUsersACType
 
 const initState: UsersStateType = {
-    users: []
+    users: [],
+    pageSize: 5,
 }
 
 export const usersReducer = (state = initState, action: ActionsType): UsersStateType  => {

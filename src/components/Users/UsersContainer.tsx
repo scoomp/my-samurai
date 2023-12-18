@@ -1,12 +1,10 @@
 import {connect} from 'react-redux';
 import {AppStateType} from '../../redux/redux-store';
 import {Dispatch} from 'redux';
-import {Users} from './Users';
-import {followAC, setUsersAC, unfollowAC, UserType} from '../../redux/users-reducer';
+import {followAC, setUsersAC, unfollowAC, UsersStateType, UserType} from '../../redux/users-reducer';
+import Users from './Users';
 
-type MapStateToPropsType = {
-    users: UserType[]
-}
+type MapStateToPropsType = UsersStateType
 
 type MapDispatchToPropsType = {
     follow: (userId: string) => void
@@ -15,7 +13,8 @@ type MapDispatchToPropsType = {
 }
 const mapStateToProps = (state: AppStateType): MapStateToPropsType => {
     return {
-        users: state.usersPage.users
+        users: state.usersPage.users,
+        pageSize: state.usersPage.pageSize
     }
 }
 const mapDispatchToProps = (dispatch: Dispatch): MapDispatchToPropsType => {
